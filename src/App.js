@@ -20,12 +20,18 @@ export default class App extends Component {
       }
     ]
   };
+
+  deleterepo=(id)=>{
+    let afterdelete = this.state.repos.filter((element)=>{return element.id !== id})
+    this.setState({repos:afterdelete})
+  }
   render() {
     const {repos}=this.state
+    const {deleterepo}=this
     return (
       <div style={{ border: 'black 1px solid' }}>
         <Add/>
-       <Table reposparent={repos}/>
+       <Table reposparent={repos} deleteparent={deleterepo}/>
       
       </div>
     );

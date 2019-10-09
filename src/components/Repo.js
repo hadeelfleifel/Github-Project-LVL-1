@@ -3,7 +3,7 @@ import Table from './Table';
 
 export default class Repo extends Component {
   render() {
-    const {reposchild }=this.props
+    const {reposchild,deletechild }=this.props
     const {id,title,status,language}=this.props.repo
 
     return (
@@ -15,7 +15,7 @@ export default class Repo extends Component {
           <td ><input type="checkbox"/></td>
           <td >{""}</td>
           <td >{language}</td>
-          <td><button>Delete</button></td>
+          <td><button onClick={deletechild.bind(this,id)}>Delete</button></td>
           </tr> 
     );
   }

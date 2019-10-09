@@ -4,7 +4,7 @@ import Repo from './Repo'
 
 export default class Table extends Component {
   render() {
-    const {reposparent}=this.props
+    const {reposparent,deleteparent}=this.props
     return (
       <div >
         <table style={{width:100%1}}>
@@ -23,7 +23,7 @@ export default class Table extends Component {
           { 
           reposparent.map((repo,index)=>{
           return(
-           <Repo key={index} repo={repo} reposchild={reposparent}/>
+           <Repo key={index} repo={repo} reposchild={reposparent} deletechild={deleteparent}/>
           )
             })
 
