@@ -7,14 +7,17 @@ export default class Repo extends Component {
     const {id,title,status,language}=this.props.repo
 
     return (
-      <div style={{ border: '3px red solid' }}>
-        <tr>
-          <td>{id}</td>
-          <td>{title}</td>
-          <td>{status}</td>
-          <td>{language}</td>
-          </tr>
-      </div>
+        
+       <tr>
+          <td >{id}</td>
+          <td >{title}</td>
+          <td >{status}</td>
+          <td ><input type="checkbox"/></td>
+          <td >{""}</td>
+          <td >{language}</td>
+          <td><button>Delete</button></td>
+          </tr> 
     );
   }
 }
+

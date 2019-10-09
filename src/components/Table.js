@@ -1,60 +1,40 @@
 import React, { Component } from 'react';
 import Repo from './Repo'
 
+
 export default class Table extends Component {
   render() {
     const {reposparent}=this.props
     return (
-      <div style={{ border: '3px green dotted' }}>
-        <h6>Table</h6>
-        <table>
-          <tr>
+      <div >
+        <table style={{width:100%1}}>
+          <thead style={{width:100%1}}>
+            <tr>
+            <th >Number</th>
+            <th >Title</th>
+            <th >Repo Status</th>
+            <th >Check</th>
+            <th >is Private</th>
+            <th >Language</th>
+            <th >Delete</th>
+            </tr>
+          </thead>
+          <tbody style={{width:100%1}}>
+          { 
+          reposparent.map((repo,index)=>{
+          return(
+           <Repo key={index} repo={repo} reposchild={reposparent}/>
+          )
+            })
 
-          <th>Number</th>
-          <th>Title</th>
-          <th>Repo Status</th>
-          <th>Language</th>
-          <th>Delete</th>
-
-          </tr>
-
+      }
+      </tbody>
+            
           
-          
-           
-              { 
-                  reposparent.map((repo,index)=>{
-                  return(
-                     <Repo key={index} repo={repo} reposchild={reposparent}/>
-                    
-                  )
-                    })
-   
-              }
-        
-          
-
-          </table>
+        </table>       
       </div>
     );
   }
 }
 
-// { 
-//   reposparent.map((repo,index)=>{
-//     return(
-//       <td> <Repo key={index} repo={repo} reposchild={reposparent}/>
-//       </td>
-//       )
-//    })
- 
-// }
-// { 
-//   reposparent.map((repo,index)=>{
-//     return(
-//       <td> <Repo key={index} repo={repo} reposchild={reposparent}/>
-//       </td>
-//       )
-//    })
- 
-// }
 

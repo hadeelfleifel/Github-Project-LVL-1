@@ -24,7 +24,6 @@ export default class App extends Component {
     const {repos}=this.state
     return (
       <div style={{ border: 'black 1px solid' }}>
-        <h6>App</h6>
         <Add/>
        <Table reposparent={repos}/>
       
