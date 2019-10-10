@@ -12,7 +12,7 @@ export default class Repo extends Component {
           <td >{id}</td>
           <td >{title}</td>
           <td >{status}</td>
-          <td ><input type="checkbox"/></td>
+          <td ><input type="checkbox" /></td>
           <td >{""}</td>
           <td >{language}</td>
           <td><button onClick={deletechild.bind(this,id)}>Delete</button></td>
