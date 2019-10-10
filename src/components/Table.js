@@ -4,7 +4,7 @@ import Repo from './Repo'
 
 export default class Table extends Component {
   render() {
-    const {reposparent,deleteparent}=this.props
+    const {reposparent,deleteparent,editrepo,isPrivate}=this.props
     return (
       <div >
         <table style={{width:100%1}}>
@@ -14,7 +14,7 @@ export default class Table extends Component {
             <th >Title</th>
             <th >Repo Status</th>
             <th >Check</th>
-            <th >is Private</th>
+            <th >Is Private</th>
             <th >Language</th>
             <th >Delete</th>
             </tr>
@@ -23,7 +23,7 @@ export default class Table extends Component {
           { 
           reposparent.map((repo,index)=>{
           return(
-           <Repo key={index} repo={repo} reposchild={reposparent} deletechild={deleteparent}/>
+           <Repo key={index} repo={repo} reposchild={reposparent} deletechild={deleteparent} editrepo={editrepo} isPrivate={isPrivate} />
           )
             })
 

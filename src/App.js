@@ -1,24 +1,30 @@
 import React, { Component } from 'react';
 import Table from './components/Table';
 import Add from './components/Add';
+import uuid from 'uuid'
 
 
 export default class App extends Component {
   state = {
     repos: [
       {
-        id: 1,
+        id: uuid(),
         title: 'Array',
-        status: 'Private',
-        language: 'HTML'
+        status: 'PRIVATE',
+        language: 'HTML',
+        
+
       },
       {
-        id: 2,
+        id: uuid(),
         title: 'Object',
-        status: 'Public',
-        language: 'JavaScript'
+        status: 'PUBLIC',
+        language: 'JavaScript',
+     
+
       }
-    ]
+    ],
+
   };
 
 
@@ -29,23 +35,63 @@ export default class App extends Component {
 
 
   addrepo=(item)=>{
+ 
     let newstate = this.state.repos
-    newstate.push(item)
+    if(item.title !=="" && item.status!=="" && item.language!==""){
+    newstate.push(item)}
+    
     this.setState({repos:newstate})
   }
 
-  
-  editrepo=()=>{
 
+  editrepo=(id)=>{
+      console.log("CHECK")
+
+      
+      let newcheck=this.state.repos.map((element,index)=>{
+
+       
+         if(id===element.id){
+              if(element.status === "PUBLIC"){
+                element.status="PRIVATE" 
+              }
+              else if (element.status==="PRIVATE"){
+                element.status="PUBLIC"
+
+              }
+
+          }
+          return element
+
+      })
+      this.setState({repos:newcheck})
 
   }
+
+  
+  // isPrivate=(id)=>{
+  //   this.state.repos.map((element,index)=>{
+  //     if(id=element.id){
+  //     if(element.status==="PRIVATE"){
+  //        return "YES"
+  //     }
+  //     else {
+  //       return "No"
+  //     }
+  //   }}
+  //   )}
+
+
+  
+
+
   render() {
     const {repos}=this.state
-    const {deleterepo,addrepo}=this
+    const {deleterepo,addrepo, editrepo,isPrivate}=this
     return (
       <div style={{ border: 'black 1px solid' }}>
         <Add addrepo={addrepo} reposadd={repos}/>
-       <Table reposparent={repos} deleteparent={deleterepo}/>
+       <Table reposparent={repos} deleteparent={deleterepo} editrepo={editrepo} isPrivate={isPrivate} />
       {/* <button onClick={this.addrepo.bind(this,{id: 2,
         title: 'Object',
         status: 'Public',

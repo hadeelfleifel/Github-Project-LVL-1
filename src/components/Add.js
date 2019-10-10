@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import uuid from 'uuid'
 
 export default class Add extends Component {
 
   state={
       title:"",
       lang:"",
-      status:""
+      status:"",
 
   }
 
@@ -30,18 +31,24 @@ export default class Add extends Component {
     const {addrepo,reposadd}=this.props
     return (
       <div >
-        <input placeholder="Repo Title" onChange={changeTitle}/>
-        <input placeholder="Repo Language" onChange={changeLang}/>
-        <select onChange={changeSelect}>
-            <option selected disabled hidden>Choose</option>
+        <input placeholder="Repo Title" value={this.state.title} onChange={changeTitle} />
+        <input placeholder="Repo Language" value={this.state.lang} onChange={changeLang} />
+        <select value={this.state.status} onChange={changeSelect}  >
+            <option selected  hidden >Choose</option>
             <option value="PRIVATE" >Private</option>
             <option value="PUBLIC" >Public</option>
             
           </select>
- <button onClick={addrepo.bind(this,{id: reposadd.length+1,
+
+
+ <button onClick={()=>{
+      addrepo({id: reposadd.id=uuid(),
         title: this.state.title,
-        status: this.state.status,
-        language: this.state.lang})}>Add New Repo</button> 
+        status: this.state.status ,
+        language: this.state.lang} )
+           this.setState({title:"",lang:"",status:""})
+                   }
+                } >Add New Repo</button> 
         <hr/>
       </div>
     );
