@@ -10,7 +10,7 @@ export default class App extends Component {
       {
         id: uuid(),
         title: 'Array',
-        status: 'PRIVATE',
+        status: 'Private',
         language: 'HTML',
         
 
@@ -18,7 +18,7 @@ export default class App extends Component {
       {
         id: uuid(),
         title: 'Object',
-        status: 'PUBLIC',
+        status: 'Public',
         language: 'JavaScript',
      
 
@@ -52,11 +52,11 @@ export default class App extends Component {
 
        
          if(id===element.id){
-              if(element.status === "PUBLIC"){
-                element.status="PRIVATE" 
+              if(element.status === "Public"){
+                element.status="Private" 
               }
-              else if (element.status==="PRIVATE"){
-                element.status="PUBLIC"
+              else if (element.status==="Private"){
+                element.status="Public"
 
               }
 

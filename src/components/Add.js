@@ -35,8 +35,8 @@ export default class Add extends Component {
         <input placeholder="Repo Language" value={this.state.lang} onChange={changeLang} />
         <select value={this.state.status} onChange={changeSelect}  >
             <option selected  hidden >Choose</option>
-            <option value="PRIVATE" >Private</option>
-            <option value="PUBLIC" >Public</option>
+            <option value="Private" >Private</option>
+            <option value="Public" >Public</option>
             
           </select>
 
